@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import DisplayTodo from "./component/DisplayTodo/DisplayTodo";
+import Notification from "./component/Notification/Notification";
+import AddTaskContextProvider from "./context/AddTaskContext/AddTaskContext";
+import TaskContextProvider from "./context/taskContext";
+import FinishedTasks from "./component/FinishedTasks/FinishedTasks";
+import React, { useContext } from "react";
+import { ThemeContext } from "./context/themeContext";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const { isLightTheme, toggleTheme } = useContext(ThemeContext);
+	const theme = isLightTheme ? "App" : ["App", "dark"].join(" ");
+	const navTheme = isLightTheme ? "nav" : ["nav", "dark"].join(" ");
+	const iconTheme = isLightTheme ? "icon" : ["icon", "dark"].join(" ");
+	const toggleThemeController = isLightTheme
+		? "toggle"
+		: ["toggle", "dark"].join(" ");
+	return (
+		<div className={theme}>
+			<div className={navTheme}>
+				<div className="logo">
+					<h1>Doingz</h1>
+				</div>
+				<div className={toggleThemeController}>
+					{isLightTheme ? (
+						<FaSun className={iconTheme} onClick={() => toggleTheme()} />
+					) : (
+						<FaMoon className={iconTheme} onClick={() => toggleTheme()} />
+					)}
+				</div>
+			</div>
+			<TaskContextProvider>
+				<Notification />
+				<AddTaskContextProvider>
+					<DisplayTodo />
+				</AddTaskContextProvider>
+
+				<FinishedTasks />
+			</TaskContextProvider>
+		</div>
+	);
 }
 
 export default App;
