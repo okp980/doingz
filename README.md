@@ -5,6 +5,8 @@
 A simple react application which enables users to create and keep track of future tasks.
 
 ---
+<img width="779" alt="doingz" src="https://user-images.githubusercontent.com/66972059/131048032-95170101-2450-45fb-91f5-d4b5a7ec398c.png">
+---
 
 ## Hooks Used
 
