@@ -1,17 +1,32 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 export const ThemeContext = createContext();
 
 
-const ThemeContextProvider = ({children}) => {
+const ThemeContextProvider = ({ children }) => {
     let [isLightTheme, setIsLightTheme] = useState(true);
 
-    const toggleTheme=()=>{
-        setIsLightTheme(prevState=> isLightTheme=!prevState)
+    useEffect(() => {
+        const theme = JSON.parse(localStorage.getItem('dis_todo_theme'))
+        if (theme) {
+            if (theme.light) {
+                setIsLightTheme(true)
+            } else {
+                setIsLightTheme(false)
+            }
+        }
+    }, [])
+    useEffect(() => {
+        localStorage.setItem('dis_todo_theme', JSON.stringify({ light: isLightTheme }))
+    }, [isLightTheme])
+
+    const toggleTheme = () => {
+        setIsLightTheme(prevState => isLightTheme = !prevState)
+
     }
 
     return (
-        <ThemeContext.Provider value={{isLightTheme, toggleTheme}}>
+        <ThemeContext.Provider value={{ isLightTheme, toggleTheme }}>
             {children}
         </ThemeContext.Provider>
     )

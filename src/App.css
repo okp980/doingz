@@ -1,19 +1,27 @@
-.App {
-	max-width: 400px;
+.background {
+	background-color: #502248;
+	position: fixed;
+	top: 0;
+	left: 0;
 	width: 100%;
-	min-width: 350px;
+	height: 100%;
+	z-index: 1;
+}
+
+.background.dark {
+	background-color: #20171f;
+}
+
+.App {
+	position: relative;
+	z-index: 20;
+	max-width: 800px;
+	width: 100%;
 	/* padding: 0px 10px 50px; */
 	margin: 50px auto;
 	background-color: #f3e6f0;
 	border-radius: 5px;
 	border: none;
-}
-
-@media screen and (max-width: 400px) {
-	.App {
-		max-width: unset;
-		width: 100%;
-	}
 }
 
 .nav {
@@ -27,7 +35,7 @@
 }
 
 .nav.dark {
-	background-color: #424241;
+	background-color: #351c30;
 }
 
 .logo h1 {
@@ -44,7 +52,7 @@
 }
 
 .toggle.dark {
-	background-color: #4e4e4c;
+	background-color: #20171f;
 }
 
 .toggle .icon {
@@ -52,7 +60,7 @@
 }
 
 .App.dark {
-	background-color: #2e2d2b;
+	background-color: #362735;
 }
 
 .notification {
@@ -64,7 +72,7 @@
 }
 
 .notification.dark {
-	background-color: #424241;
+	background-color: #20171f;
 }
 
 .notification p {
@@ -94,22 +102,18 @@
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	margin: 20px 0;
+	margin: 20px;
 	padding: 50px 0;
 }
 
 .all-task.dark {
-	background-color: #424241;
+	background-color: #351c30;
 }
 
 .item {
-	width: 100%;
-
+	width: 80%;
+	margin: 0 auto;
 	padding: 5px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 }
 
 .icon {
@@ -132,24 +136,17 @@
 }
 
 .list-content {
-	width: 320px;
+	max-width: 100%;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 	background-color: #d1b1cb;
 	margin: 10px 0;
-	padding: 10px 5px;
-}
-
-@media screen and (max-width: 400px) {
-	.list-content {
-		margin: 10px 0;
-		padding: 10px 3px;
-	}
+	padding: 10px;
 }
 
 .list-content.dark {
-	background-color: #313131;
+	background-color: #20171f;
 }
 
 .list-content h5 {
@@ -157,12 +154,15 @@
 	font-weight: 700;
 	text-transform: uppercase;
 	margin-bottom: 10px;
-	text-align: left;
-	width: 100%;
+	margin-left: 10px;
 }
 
 .list-content.dark h5 {
 	color: #aab4b2;
+}
+
+.list-content input:hover {
+	cursor: pointer;
 }
 
 .list-content p {
@@ -170,6 +170,7 @@
 	font-weight: 500;
 	text-transform: capitalize;
 	margin-bottom: 10px;
+	margin-left: 10px;
 	font-size: 14px;
 }
 
@@ -194,23 +195,21 @@
 }
 
 .button.dark {
-	background-color: #8d9795;
+	background-color: #20171f;
 }
 
 .button:hover.dark {
-	background-color: #707776;
+	background-color: #352633;
 }
 
 .finished {
-	width: 95%;
-
 	background-color: #d1b1cb;
 	margin: 10px auto;
 	padding: 10px;
 }
 
 .finished.dark {
-	background-color: #313131;
+	background-color: #351c30;
 }
 
 .uppercase {
@@ -223,6 +222,7 @@
 	text-transform: capitalize;
 	margin-bottom: 10px;
 	font-size: 14px;
+
 	text-align: center;
 	padding: 20px 5px;
 	line-height: 1.5;
@@ -235,16 +235,16 @@
 
 .taskfinished {
 	display: flex;
-	width: 100%;
+
 	justify-content: space-around;
 	align-items: center;
 	background-color: #ddcad9;
 	margin: 10px 0;
-	padding: 10px 0;
+	padding: 20px;
 }
 
 .taskfinished.dark {
-	background-color: #424241;
+	background-color: #20171f;
 }
 
 .taskfinished h5 {

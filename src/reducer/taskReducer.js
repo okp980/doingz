@@ -11,15 +11,18 @@ export const taskReducer = (state, action) => {
 					id: uuid(),
 				},
 			];
-			break;
+
 		case "DELETE_TODO":
-			return state.filter((task) => task.id !== action.id);
-			break;
+			const newState = state.filter((task) => task.id !== action.id);
+			localStorage.setItem("dis_task", JSON.stringify(newState));
+			return newState;
+
 		case "COMPLETE_TASK":
-			return state.map((task) =>
+			const completedTasks = state.map((task) =>
 				task.id === action.id ? { ...task, completed: !task.completed } : task
 			);
-			break;
+			localStorage.setItem("dis_task", JSON.stringify(completedTasks));
+			return completedTasks;
 
 		default:
 			return state;
