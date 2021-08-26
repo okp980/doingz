@@ -1,12 +1,12 @@
 
-## #Doingz App
+# Doingz App
 
-##Description
+## Description
 A simple react application which enables users to create and keep track of future tasks.
 
 ---
 
-##Hooks Used
+## Hooks Used
 
 - useState
 - useEffect
@@ -15,17 +15,17 @@ A simple react application which enables users to create and keep track of futur
 
 ---
 
-##Live Link
+## Live Link
 [https://okp980.github.io/doingz/](https://okp980.github.io/doingz/)
 
 ---
 
-##Project Summary
+## Project Summary
 
-- use of useContext for app wide state management.
-- persisting state with local storage.
-- maintaing the checked/unchecked state of a task on page reload to ryhm with the completed or uncompleted state of a task.
-- saving the user's theme choice to local storage to prevent loss on page reload
+- Use of useContext for app wide state management.
+- Persisting state with local storage.
+- Maintaing the checked/unchecked state of a task on page reload to ryhm with the completed or uncompleted state of a task.
+- Saving the user's theme choice to local storage to prevent loss on page reload
 
 # Getting Started with Create React App
 
